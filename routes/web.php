@@ -15,8 +15,13 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('products',[HomeController::class,'index'])->name('products');
-Route::get('register',[RegisterController::class,'index'])->name('register');
+    Route::get('/form',[RegisterController::class,'index'])->name('form');
+    Route::post('/register',[RegisterController::class,'store']);
+    Route::post('/login',[RegisterController::class,'authenticate']);
+    Route::get('/logout',[RegisterController::class,'logout'])->name('logout');
+
+
+    Route::get('home',[HomeController::class,'home'])->name('home');
+    Route::get('products',[HomeController::class,'index'])->name('products');
+
+Route::get('/backend',[HomeController::class,'adminPannel'])->name('backend');

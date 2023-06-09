@@ -309,14 +309,17 @@ padding: 10px 25px;
                   </li>
                 
                 </ul>
-                <form class="d-flex">
                     <div class="icon-nav">
                         <i class="icon-twitter"></i> 
                         <i class="icon-github"></i> 
                         <i class="icon-facebook"></i> 
                     </div>
-                  <a  href="{{route('register')}}"class="btn px-4 py-2" style=" border-radius:3px; border:1px solid black; background: white; color:black; font-weight:300; " type="submit">Login</a>
-                </form>
+                    @if (auth()->check())
+                    <a href="{{ route('logout') }}" class="btn px-4 py-2" style="border-radius: 3px; border: 1px solid black; background: white; color: black; font-weight: 300;" type="submit">Logout</a>
+                @else
+                    <a href="{{ route('form') }}" class="btn px-4 py-2" style="border-radius: 3px; border: 1px solid black; background: white; color: black; font-weight: 300;" type="submit">Login</a>
+                @endif
+                
               </div>
             </div>
         </nav>
