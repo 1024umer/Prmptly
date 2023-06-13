@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\{RegisterController,AdminController};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +25,4 @@ use App\Http\Controllers\RegisterController;
     Route::get('products',[HomeController::class,'index'])->name('products');
 
 Route::get('/backend',[HomeController::class,'adminPannel'])->name('backend');
+Route::get('/adminlogin',[AdminController::class,'login'])->name('admin.login');
